@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://r585dmxhndbe"]
+
+[ext_resource type="Script" uid="uid://b7qxf4c0pw6pf" path="res://Scenes/GameUI/GameUI.gd" id="1_iq8cv"]
+[ext_resource type="LabelSettings" uid="uid://dagx0egv8f0ih" path="res://Resources/red_title_32.tres" id="2_jwnss"]
+[ext_resource type="LabelSettings" uid="uid://bjqsst4bq223x" path="res://Resources/red_title_72.tres" id="3_33k4q"]
+[ext_resource type="LabelSettings" uid="uid://knuqtaq84cqm" path="res://Resources/white_title_56.tres" id="4_lgqju"]
+[ext_resource type="AudioStream" uid="uid://i3f31prmubav" path="res://Assets/audio/score.wav" id="5_yyhr2"]
+
+[node name="GameUI" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iq8cv")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("2_jwnss")
+
+[node name="GameOverLabel" type="Label" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = ExtResource("3_33k4q")
+
+[node name="PressSpaceLabel" type="Label" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PRESS SPACE"
+label_settings = ExtResource("4_lgqju")
+
+[node name="GameOverTimer" type="Timer" parent="Control"]
+wait_time = 2.0
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("5_yyhr2")
+volume_db = -25.0
+
+[connection signal="timeout" from="Control/GameOverTimer" to="Control" method="_on_game_over_timer_timeout"]
