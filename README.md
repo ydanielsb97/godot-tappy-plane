@@ -21,7 +21,7 @@ Godot Tappy Plane is a fun and lightweight replication of the classic Flappy Bir
 ## Technologies Used
 
 - **Godot Engine (Version 4.4)**: The open-source game engine used for developing the game.
-- **JavaScript**: For scripting and logic implementation.
+- **GDScript**: For scripting and logic implementation.
 
 ## Getting Started
 
