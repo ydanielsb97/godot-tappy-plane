@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Exit") or (
-		event.is_action_pressed("jump") and 
+		event.is_action_pressed("ui_accept") and 
 		press_space_label.visible):
 		GameManager.load_main_scene()
 

@@ -10,7 +10,6 @@ var _gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 
 const JUMP_SPEED: float = -350.0 
 var tap_pressed = false
-#signal plane_died
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
