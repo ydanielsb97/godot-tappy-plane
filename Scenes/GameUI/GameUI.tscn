@@ -27,6 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="ScoreLabel" type="Label" parent="Control/MarginContainer"]
 layout_mode = 2

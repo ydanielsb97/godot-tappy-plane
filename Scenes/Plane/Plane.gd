@@ -29,7 +29,7 @@ func fly(delta: float) -> void:
 		tap_pressed = false
 
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if event.is_pressed():
 		tap_pressed = true
 
 func die() -> void:
