@@ -10,21 +10,19 @@ var main = load("res://Scenes/Main/Main.tscn")
 @onready var score_sound: AudioStreamPlayer = $ScoreSound
 
 var _score: int = 0
-var _tap_pressed = false
 
 func _ready() -> void:
 	_score = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Exit") or (
-		(event.is_action_pressed("ui_accept") or _tap_pressed) and 
+		event.is_action_pressed("ui_accept") and 
 		press_space_label.visible):
-		_tap_pressed = false
 		GameManager.load_main_scene()
-
-func _input(event):
-	if event.is_pressed():
-		_tap_pressed = true
+		
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and press_space_label.visible:
+		GameManager.load_main_scene()
 		
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
